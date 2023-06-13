@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "813776672115",
+    "project_id": "zuma-c6eee",
+    "storage_bucket": "zuma-c6eee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813776672115:android:d9746aa08f9174696f2106",
+        "android_client_info": {
+          "package_name": "com.example.it_support"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813776672115-t9k2odnr7fjtr470gc2foj1hg6ghrpms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb3txckGh3ysQwZ_4kmDNaEqSBVZD6FtY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813776672115-t9k2odnr7fjtr470gc2foj1hg6ghrpms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
