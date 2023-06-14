@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/admin_panel.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:zumait/screens/admin_panel.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,13 +17,26 @@ class _HomePageState extends State<HomePage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController mController = TextEditingController();
 
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  Future<void> addUsers() {
+    return users
+        .add({'bolim': bolim, 'name': name, 'message': message})
+        .then((value) => print('user Infoemation Added'))
+        .catchError((error) => print('Failed to add users: $error'));
+  }
+
+  CollectionReference users = FirebaseFirestore.instance.collection("users");
+  // DatabaseReference ref = FirebaseDatabase.instance.ref();
+
   var bolim = '';
   var name = '';
   var message = '';
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference users = FirebaseFirestore.instance.collection("users");
+    
+    // final controller = Get.put();
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -111,15 +126,12 @@ class _HomePageState extends State<HomePage> {
                             content: Text("Sending Data to IT Departament"),
                           ),
                         );
-                        users
-                            .add({
-                              "bolim": bolim,
-                              "name": name,
-                              "message": message
-                            })
-                            .then((value) => (value) => print("User Added"))
-                            .catchError((error) =>
-                                print("Failed to add user: ${error}"));
+                        setState(() {
+                          addUsers();
+                          createUser(
+                              bolim: bolim, name: name, message: message);
+                        });
+
                         bController.clear();
                         nameController.clear();
                         mController.clear();
@@ -131,10 +143,25 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        Navigator.push(context,  MaterialPageRoute(builder: (context) =>  AdminPage()));
-        
-      }, child: Text(">>"),),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => AdminPage()));
+        },
+        child: Text(">>"),
+      ),
     );
+  }
+
+  Future createUser(
+      {required String bolim,
+      required String name,
+      required String message}) async {
+    final docUser = FirebaseFirestore.instance.collection("users").doc("my-id");
+    final json = {
+      "bolim": bolim,
+      "name": name,
+      "message": message,
+    };
   }
 }

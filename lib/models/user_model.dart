@@ -1,12 +1,21 @@
-// class UserModel {
-//   String bolim;
-//   String name;
-//   String message;
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-//   UserModel({required this.bolim, required this.name, required this.message});
+class UserModel {
+  final String bolim;
+  final String name;
+  final String message;
 
-//   UserModel.fromJson(Map<String, dynamic> parsedJSON)
-//       : bolim = parsedJSON['bolim'],
-//         name = parsedJSON['name'],
-//         message = parsedJSON['message'];
-// }
+  UserModel({
+    required this.bolim,
+    required this.name,
+    required this.message,
+  });
+  
+  toJson() {
+    return {
+      "bolim":bolim, 
+      "name" : name,
+      "message":message,       
+    };
+  }
+}

@@ -80,7 +80,7 @@ class _AdminPageState extends State<AdminPage> {
                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
                                      Text("${index + 1}"), 
-                                  Text(" ${data.docs[index]['bolim'].toString()}, "), 
+                                  Text(" ${data.docs[index]['bolim'].toString()}"), 
                                     Text(
                                         "${data.docs[index]['message'].toString()}"),
                                      Text(
