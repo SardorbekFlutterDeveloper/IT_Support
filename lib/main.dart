@@ -5,14 +5,14 @@ import 'package:zumait/screens/home_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp(
-  //   options: FirebaseOptions(
-  //     apiKey: "AIzaSyBcr-omX2rAmbsV2yn2T9E0aRvYlbifD4k",
-  //     appId: "1:813776672115:web:bb20383b5f6b98516f2106",
-  //     messagingSenderId: "813776672115",
-  //     projectId: "zuma-c6eee",
-  //   ),
-  // );
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: "AIzaSyBcr-omX2rAmbsV2yn2T9E0aRvYlbifD4k",
+      appId: "1:813776672115:web:bb20383b5f6b98516f2106",
+      messagingSenderId: "813776672115",
+      projectId: "zuma-c6eee",
+    ),
+  );
   runApp(const MyApp());
 }
 
