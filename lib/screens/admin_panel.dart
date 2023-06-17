@@ -15,10 +15,10 @@ class _AdminPageState extends State<AdminPage> {
   final Stream users =
       FirebaseFirestore.instance.collection("users").snapshots();
 
-  var excel = Excel.createExcel(); //create an excel sheet
-  Sheet sheetObject = excel['SheetName'];
-   var cell = sheetObject.cell(CellIndex.indexByString("A1"));
- cell.value = 8;
+//   var excel = Excel.createExcel(); //create an excel sheet
+//   Sheet sheetObject = excel['SheetName'];
+//    var cell = sheetObject.cell(CellIndex.indexByString("A1"));
+//  cell.value = 8;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
