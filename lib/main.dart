@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:it_support/authorization/sign_in/sign_in_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:zumait/screens/admin_panel.dart';
 import 'package:zumait/screens/home_page.dart';
 
 Future<void> main() async {
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomePage(),
+      home:HomePage(),
     );
   }
 }
