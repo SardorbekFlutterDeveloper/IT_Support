@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:zumait/authorization/sign_up/sign_up.dart';
-import 'package:zumait/screens/admin_panel.dart';
+import 'package:zumait/screens/admin/admin_panel.dart';
 
-import '../../screens/home_page.dart';
+import '../../screens/users/home_page.dart';
 
 
 class SignInPage extends StatefulWidget {

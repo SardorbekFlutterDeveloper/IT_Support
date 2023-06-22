@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-// import 'package:it_support/authorization/sign_in/sign_in_page.dart';
+
 import 'package:firebase_core/firebase_core.dart';
-import 'package:zumait/screens/admin_panel.dart';
-import 'package:zumait/screens/home_page.dart';
+
+import 'package:zumait/screens/users/home_page.dart';
+
+import 'package:zumait/screens/users/second_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +32,73 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:HomePage(),
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          body: Column(
+            children: [
+              Expanded(
+                  flex: 3,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/images/4.png",
+                          ),
+                        ],
+                      ),
+                      Container(
+                        height: 40,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white),
+                        child: TabBar(
+                          indicator: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(0),
+                          ),
+                          labelColor: Color(0xff01e6d1),
+
+                          dividerColor: Color(0xff01e6d1),
+                          // ignore: prefer_const_literals_to_create_immutables
+                          tabs: [
+                            Tab(
+                              child: Text(
+                                "Help Desk",
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Tab(
+                              child: Text(
+                                "Request Form",
+                                style: TextStyle(
+                                    fontSize: 30, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )),
+              Expanded(
+                flex: 8,
+                child: TabBarView(
+                  children: [
+                    HomePage(),
+                    SecondPage(),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
